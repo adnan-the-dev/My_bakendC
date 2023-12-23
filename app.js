@@ -4,8 +4,10 @@ const express = require('express');
 const bcypt = require('bcrypt')
 const dotenv = require('dotenv');
 const morgan = require ('morgan');
+const cors = require('cors')
 
 const app = express()
+app.use(cors())
 app.use(morgan("common"));
 
 
@@ -77,14 +79,12 @@ app.delete('/:id', async (req, res) => {
     }
 })
 //update user
-app.put('/', async (req, res) => {
+app.put('/update-user/:id', async (req, res) => {
     try {
-        const salt = await bcypt.genSalt(10)
-        req.body.password= await bcypt.hash(req.body.password , salt)
-        const user = await AllUser.updateOne(
-            {$set:req.body}
-        )
-        res.send({user:"update"})
+       const {username , email} = req.body
+       const newUser = {username , email}
+        const user = await AllUser.findByIdAndUpdate(req.params.id,  {$set: newUser})
+        return res.status(200).json({status:"Success" , result:user} )
     } catch (e) {
         return res.status(500).json(e)
     }
