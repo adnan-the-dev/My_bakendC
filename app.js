@@ -1,4 +1,5 @@
-let AllUser = require("./models/User")
+const AllUser = require("./models/User")
+const Products = require("./models/AddProducts")
 const mongoose = require('mongoose')
 const express = require('express');
 const bcypt = require('bcrypt')
@@ -97,5 +98,38 @@ app.get('/users', async (req, res) => {
         return res.json(users)
     } catch (e) {
         return res.status(500).json(e)
+    }
+})
+// ***********************Products_Api********************
+
+
+app.post('/addProduct', async (req, res) => {
+    try {
+       const product = new Products ({
+        name: req.body.name,
+        price: req.body.price,
+        category: req.body.category,
+        description: req.body.description,
+        discount: req.body.discount,
+        images: req.body.images
+        
+       });
+       const product_data = await product.save()
+        return res.status(200).send({success:true , message:"product details" , result:product_data})
+    } catch (e) {
+        console.log(e);
+        res.status(500).send({
+           success:false, message:e.message || "some error ecured"
+        })
+    }
+})
+
+//get all products
+app.get('/products', async (req, res) => {
+    try {
+        const product = await Products.find()
+        return res.status(200).send({success:true,message:"all products",result:product})
+    } catch (e) {
+        return res.status(500).send({success:false,message:e.message || "some error ecured"})
     }
 })
