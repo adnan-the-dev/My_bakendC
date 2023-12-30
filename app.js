@@ -109,7 +109,7 @@ app.get('/users', async (req, res) => {
 //       description:
 //         "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Sint ea inventore mollitia impedit quia laboriosam eligendi aut nam recusandae ratione.Lorem ipsum dolor sit amet consectetur, adipisicingelit. Sint ea inventore mollitia impedit quia laboriosam eligendi aut nam recusandae ratione.Lorem ipsum dolor sit amet consectetur, adipisicing",
 //       discount: "",
-//       img: "https://www.limelight.pk/cdn/shop/files/DSC07248_7cb87d39-e8cc-4a0b-a030-009d81a81d06_533x.jpg?v=1701863047",
+//       images: "https://www.limelight.pk/cdn/shop/files/DSC07248_7cb87d39-e8cc-4a0b-a030-009d81a81d06_533x.jpg?v=1701863047",
 //     },
 //     {
 //       name: "2 Piece Velvet",
@@ -118,7 +118,7 @@ app.get('/users', async (req, res) => {
 //       description:
 //         "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Sint ea inventore mollitia impedit quia laboriosam eligendi aut nam recusandae ratione.Lorem ipsum dolor sit amet consectetur, adipisicingelit. Sint ea inventore mollitia impedit quia laboriosam eligendi aut nam recusandae ratione.Lorem ipsum dolor sit amet consectetur, adipisicing",
 //       discount: "",
-//       img: "https://www.limelight.pk/cdn/shop/files/DSC08122_533x.jpg?v=1701671641",
+//       images: "https://www.limelight.pk/cdn/shop/files/DSC08122_533x.jpg?v=1701671641",
 //     },
 //     {
 //       name: "2 Piece Khaddar Suit",
@@ -127,7 +127,7 @@ app.get('/users', async (req, res) => {
 //       description:
 //         "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Sint ea inventore mollitia impedit quia laboriosam eligendi aut nam recusandae ratione.Lorem ipsum dolor sit amet consectetur, adipisicingelit. Sint ea inventore mollitia impedit quia laboriosam eligendi aut nam recusandae ratione.Lorem ipsum dolor sit amet consectetur, adipisicing",
 //       discount: "",
-//       img: "https://www.limelight.pk/cdn/shop/files/DSC08076_533x.jpg?v=1701067463",
+//       images: "https://www.limelight.pk/cdn/shop/files/DSC08076_533x.jpg?v=1701067463",
 //     },
 //     {
 //       name: "Linen Kurti",
@@ -136,7 +136,7 @@ app.get('/users', async (req, res) => {
 //       description:
 //         "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Sint ea inventore mollitia impedit quia laboriosam eligendi aut nam recusandae ratione.Lorem ipsum dolor sit amet consectetur, adipisicingelit. Sint ea inventore mollitia impedit quia laboriosam eligendi aut nam recusandae ratione.Lorem ipsum dolor sit amet consectetur, adipisicing",
 //       discount: "",
-//       img: "https://www.limelight.pk/cdn/shop/files/DSC03913_1_533x.jpg?v=1700725699",
+//       images: "https://www.limelight.pk/cdn/shop/files/DSC03913_1_533x.jpg?v=1700725699",
 //     },
 //     {
 //       name: "3 Piece Khaddar Suit",
@@ -145,7 +145,7 @@ app.get('/users', async (req, res) => {
 //       description:
 //         "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Sint ea inventore mollitia impedit quia laboriosam eligendi aut nam recusandae ratione.Lorem ipsum dolor sit amet consectetur, adipisicingelit. Sint ea inventore mollitia impedit quia laboriosam eligendi aut nam recusandae ratione.Lorem ipsum dolor sit amet consectetur, adipisicing",
 //       discount: "",
-//       img: "https://www.limelight.pk/cdn/shop/files/DSC03165_fb961010-dbdf-4754-8e2b-c8a9f24985e3_533x.jpg?v=1701690290",
+//       images: "https://www.limelight.pk/cdn/shop/files/DSC03165_fb961010-dbdf-4754-8e2b-c8a9f24985e3_533x.jpg?v=1701690290",
 //     },
 //     {
 //       name: "Leather Coat",
@@ -154,7 +154,7 @@ app.get('/users', async (req, res) => {
 //       description:
 //         "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Sint ea inventore mollitia impedit quia laboriosam eligendi aut nam recusandae ratione.Lorem ipsum dolor sit amet consectetur, adipisicingelit. Sint ea inventore mollitia impedit quia laboriosam eligendi aut nam recusandae ratione.Lorem ipsum dolor sit amet consectetur, adipisicing",
 //       discount: "",
-//       img: "https://www.limelight.pk/cdn/shop/files/DSC09949_533x.jpg?v=1701848439",
+//       images: "https://www.limelight.pk/cdn/shop/files/DSC09949_533x.jpg?v=1701848439",
 //     },
 //     {
 //       name: "Khaddar Shirt Printed",
@@ -163,7 +163,7 @@ app.get('/users', async (req, res) => {
 //       description:
 //         "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Sint ea inventore mollitia impedit quia laboriosam eligendi aut nam recusandae ratione.Lorem ipsum dolor sit amet consectetur, adipisicingelit. Sint ea inventore mollitia impedit quia laboriosam eligendi aut nam recusandae ratione.Lorem ipsum dolor sit amet consectetur, adipisicing",
 //       discount: "",
-//       img: "https://www.limelight.pk/cdn/shop/files/DSC00789_533x.jpg?v=1701766180",
+//       images: "https://www.limelight.pk/cdn/shop/files/DSC00789_533x.jpg?v=1701766180",
 //     },
 //     {
 //       name: "Khaddar Shirt",
@@ -172,7 +172,7 @@ app.get('/users', async (req, res) => {
 //       description:
 //         "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Sint ea inventore mollitia impedit quia laboriosam eligendi aut nam recusandae ratione.Lorem ipsum dolor sit amet consectetur, adipisicingelit. Sint ea inventore mollitia impedit quia laboriosam eligendi aut nam recusandae ratione.Lorem ipsum dolor sit amet consectetur, adipisicing",
 //       discount: "",
-//       img: "https://www.limelight.pk/cdn/shop/files/DSC08143_533x.jpg?v=1701163187",
+//       images: "https://www.limelight.pk/cdn/shop/files/DSC08143_533x.jpg?v=1701163187",
 //     },
 //     {
 //       name: "Embellished Mules",
@@ -181,7 +181,7 @@ app.get('/users', async (req, res) => {
 //       description:
 //         "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Sint ea inventore mollitia impedit quia laboriosam eligendi aut nam recusandae ratione.Lorem ipsum dolor sit amet consectetur, adipisicingelit. Sint ea inventore mollitia impedit quia laboriosam eligendi aut nam recusandae ratione.Lorem ipsum dolor sit amet consectetur, adipisicing",
 //       discount: "",
-//       img: "https://www.limelight.pk/cdn/shop/files/DSC_2529_3299daa8-35df-4274-9c81-111887a7d5ca_533x.jpg?v=1702900701",
+//       images: "https://www.limelight.pk/cdn/shop/files/DSC_2529_3299daa8-35df-4274-9c81-111887a7d5ca_533x.jpg?v=1702900701",
 //     },
 //     {
 //       name: "3 Piece Organza Suit",
@@ -190,7 +190,7 @@ app.get('/users', async (req, res) => {
 //       description:
 //         "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Sint ea inventore mollitia impedit quia laboriosam eligendi aut nam recusandae ratione.Lorem ipsum dolor sit amet consectetur, adipisicingelit. Sint ea inventore mollitia impedit quia laboriosam eligendi aut nam recusandae ratione.Lorem ipsum dolor sit amet consectetur, adipisicing",
 //       discount: "",
-//       img: "https://www.limelight.pk/cdn/shop/files/DSC07423_11b3df96-39b9-49b0-9266-53406d598d21_533x.jpg?v=1701340903",
+//       images: "https://www.limelight.pk/cdn/shop/files/DSC07423_11b3df96-39b9-49b0-9266-53406d598d21_533x.jpg?v=1701340903",
 //     },
 //     {
 //       name: "3 Piece Velvet Suit",
@@ -199,7 +199,7 @@ app.get('/users', async (req, res) => {
 //       description:
 //         "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Sint ea inventore mollitia impedit quia laboriosam eligendi aut nam recusandae ratione.Lorem ipsum dolor sit amet consectetur, adipisicingelit. Sint ea inventore mollitia impedit quia laboriosam eligendi aut nam recusandae ratione.Lorem ipsum dolor sit amet consectetur, adipisicing",
 //       discount: "",
-//       img: "https://www.limelight.pk/cdn/shop/files/DSC01566_533x.jpg?v=1701162799",
+//       images: "https://www.limelight.pk/cdn/shop/files/DSC01566_533x.jpg?v=1701162799",
 //     },
 //     {
 //       name: "Classic Mules",
@@ -208,7 +208,7 @@ app.get('/users', async (req, res) => {
 //       description:
 //         "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Sint ea inventore mollitia impedit quia laboriosam eligendi aut nam recusandae ratione.Lorem ipsum dolor sit amet consectetur, adipisicingelit. Sint ea inventore mollitia impedit quia laboriosam eligendi aut nam recusandae ratione.Lorem ipsum dolor sit amet consectetur, adipisicing",
 //       discount: "",
-//       img: "https://www.limelight.pk/cdn/shop/files/DSC_2597_adceb16d-0399-4e0b-bfe9-1da9371181d0_533x.jpg?v=1702904081",
+//       images: "https://www.limelight.pk/cdn/shop/files/DSC_2597_adceb16d-0399-4e0b-bfe9-1da9371181d0_533x.jpg?v=1702904081",
 //     },
 //     {
 //       name: "2 Piece Velvet Suit",
@@ -217,7 +217,7 @@ app.get('/users', async (req, res) => {
 //       description:
 //         "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Sint ea inventore mollitia impedit quia laboriosam eligendi aut nam recusandae ratione.Lorem ipsum dolor sit amet consectetur, adipisicingelit. Sint ea inventore mollitia impedit quia laboriosam eligendi aut nam recusandae ratione.Lorem ipsum dolor sit amet consectetur, adipisicing",
 //       discount: "",
-//       img: "https://www.limelight.pk/cdn/shop/files/DSC06175_533x.jpg?v=1701863681",
+//       images: "https://www.limelight.pk/cdn/shop/files/DSC06175_533x.jpg?v=1701863681",
 //     },
 //     {
 //       name: "Diva-100ml",
@@ -226,7 +226,7 @@ app.get('/users', async (req, res) => {
 //       description:
 //         "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Sint ea inventore mollitia impedit quia laboriosam eligendi aut nam recusandae ratione.Lorem ipsum dolor sit amet consectetur, adipisicingelit. Sint ea inventore mollitia impedit quia laboriosam eligendi aut nam recusandae ratione.Lorem ipsum dolor sit amet consectetur, adipisicing",
 //       discount: "",
-//       img: "https://www.limelight.pk/cdn/shop/files/DSC_2916_1594a857-65ff-4ea4-8d3b-d99a141888de_533x.jpg?v=1697287398",
+//       images: "https://www.limelight.pk/cdn/shop/files/DSC_2916_1594a857-65ff-4ea4-8d3b-d99a141888de_533x.jpg?v=1697287398",
 //     },
 //     {
 //       name: "Envelope Handbag",
@@ -235,7 +235,7 @@ app.get('/users', async (req, res) => {
 //       description:
 //         "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Sint ea inventore mollitia impedit quia laboriosam eligendi aut nam recusandae ratione.Lorem ipsum dolor sit amet consectetur, adipisicingelit. Sint ea inventore mollitia impedit quia laboriosam eligendi aut nam recusandae ratione.Lorem ipsum dolor sit amet consectetur, adipisicing",
 //       discount: "",
-//       img: "https://www.limelight.pk/cdn/shop/files/DSC_1055_89376a4c-50f4-4d4c-8149-c209e1b88057_533x.jpg?v=1701074924",
+//       images: "https://www.limelight.pk/cdn/shop/files/DSC_1055_89376a4c-50f4-4d4c-8149-c209e1b88057_533x.jpg?v=1701074924",
 //     },
 //     {
 //       name: "Yarn Dyed Kurti",
@@ -244,7 +244,7 @@ app.get('/users', async (req, res) => {
 //       description:
 //         "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Sint ea inventore mollitia impedit quia laboriosam eligendi aut nam recusandae ratione.Lorem ipsum dolor sit amet consectetur, adipisicingelit. Sint ea inventore mollitia impedit quia laboriosam eligendi aut nam recusandae ratione.Lorem ipsum dolor sit amet consectetur, adipisicing",
 //       discount: "",
-//       img: "https://www.limelight.pk/cdn/shop/files/DSC04085_1_533x.jpg?v=1700206438",
+//       images: "https://www.limelight.pk/cdn/shop/files/DSC04085_1_533x.jpg?v=1700206438",
 //     },
 //     {
 //       name: "Winter Cotton Shirt",
@@ -253,7 +253,7 @@ app.get('/users', async (req, res) => {
 //       description:
 //         "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Sint ea inventore mollitia impedit quia laboriosam eligendi aut nam recusandae ratione.Lorem ipsum dolor sit amet consectetur, adipisicingelit. Sint ea inventore mollitia impedit quia laboriosam eligendi aut nam recusandae ratione.Lorem ipsum dolor sit amet consectetur, adipisicing",
 //       discount: "",
-//       img: "https://www.limelight.pk/cdn/shop/files/DSC08527_533x.jpg?v=1701170313",
+//       images: "https://www.limelight.pk/cdn/shop/files/DSC08527_533x.jpg?v=1701170313",
 //     },
 //   ]
 
