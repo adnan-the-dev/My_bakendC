@@ -2,6 +2,7 @@ const AllUser = require("./models/User")
 const Products = require("./models/AddProducts")
 const mongoose = require('mongoose')
 const express = require('express');
+const jwt = require('jsonwebtoken')
 const bcypt = require('bcrypt')
 const dotenv = require('dotenv');
 const morgan = require ('morgan');
@@ -29,6 +30,22 @@ mongoose.connect(MONGO_URL).then(() => {
 }).catch((err) => {
     console.log("an error occured", err);
 })
+// Login API
+
+app.post('/login', async (req, res) => {
+    try {
+        const user = await AllUser.findOne({email:req.body.email});
+        !user && res.status(404).send("user not found")
+
+        const token = await user.generateAuthToken();
+        console.log(token);
+        const checkPassword = await bcypt.compare(req.body.password, user.password)
+        !checkPassword && res.status(400).json("wrond password")
+        res.status(200).json(user)
+    }catch(err){
+        res.status(500).json(err)
+    }
+})
 
 // register API
 
@@ -52,20 +69,7 @@ app.post('/register', async (req, res) => {
         })
     }
 })
-// Login API
 
-app.post('/login', async (req, res) => {
-    try {
-        const user = await AllUser.findOne({email:req.body.email});
-        !user && res.status(404).send("user not found")
-
-        const checkPassword = await bcypt.compare(req.body.password, user.password)
-        !checkPassword && res.status(400).json("wrond password")
-        res.status(200).json(user)
-    }catch(err){
-        res.status(500).json(err)
-    }
-})
 
 //delete user
 app.delete('/:id', async (req, res) => {
