@@ -15,7 +15,7 @@ app.use(morgan("common"));
 dotenv.config();
 
 const { MONGO_URL } = process.env
-console.log(MONGO_URL, 'hgsaghgfhj');
+console.log(MONGO_URL, 'Hello');
 
 
 app.use(express.json())
