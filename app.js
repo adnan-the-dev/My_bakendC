@@ -1,109 +1,130 @@
-const AllUser = require("./models/User")
-const Products = require("./models/AddProducts")
-const mongoose = require('mongoose')
-const express = require('express');
-const jwt = require('jsonwebtoken')
-const bcypt = require('bcrypt')
-const dotenv = require('dotenv');
-const morgan = require ('morgan');
-const cors = require('cors')
+const AllUser = require("./models/User");
+const Products = require("./models/AddProducts");
+const mongoose = require("mongoose");
+const express = require("express");
+const jwt = require("jsonwebtoken");
+const bcypt = require("bcrypt");
+const dotenv = require("dotenv");
+const morgan = require("morgan");
+const cors = require("cors");
 
-const app = express()
-app.use(cors())
+const app = express();
+app.use(cors());
 app.use(morgan("common"));
-
 
 dotenv.config();
 
-const { MONGO_URL } = process.env
-console.log(MONGO_URL, 'Hello');
+const { MONGO_URL } = process.env;
 
-
-app.use(express.json())
+app.use(express.json());
 
 // mongoo connection
-mongoose.connect(MONGO_URL).then(() => {
-    console.log('succesfully connected to database');
+mongoose
+  .connect(MONGO_URL)
+  .then(() => {
+    console.log("succesfully connected to database");
     app.listen(8800, () => {
-        console.log("server is running");
-    })
-}).catch((err) => {
+      console.log("server is running");
+    });
+  })
+  .catch((err) => {
     console.log("an error occured", err);
-})
+  });
 // Login API
 
-app.post('/login', async (req, res) => {
-    try {
-        const user = await AllUser.findOne({email:req.body.email});
-        !user && res.status(404).send("user not found")
+// app.post("/login", async (req, res) => {
+//   try {
+//     const user = await AllUser.findOne({ email: req.body.email });
+//     !user && res.status(404).send("user not found");
 
-        const token = await user.generateAuthToken();
-        console.log(token);
-        const checkPassword = await bcypt.compare(req.body.password, user.password)
-        !checkPassword && res.status(400).json("wrond password")
-        res.status(200).json(user)
-    }catch(err){
-        res.status(500).json(err)
+//     const token = await user.generateAuthToken();
+//     console.log(token, "hello");
+//     const checkPassword = await bcypt.compare(req.body.password, user.password);
+//     !checkPassword && res.status(400).json("wrond password");
+//     res.status(200).json(user);
+//   } catch (err) {
+//     res.status(500).json(err);
+//   }
+// });
+
+app.post("/login", async (req, res) => {
+  try {
+    const user = await AllUser.findOne({ email: req.body.email });
+    if (!user) {
+      return res.status(404).send("User not found");
     }
-})
+
+    const token = await user.generateAuthToken();
+    console.log(token, "hello");
+    const checkPassword = await bcypt.compare(req.body.password, user.password);
+    if (!checkPassword) {
+      return res.status(400).send("Wrong password");
+    }
+
+    res.status(200).json(user);
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
 
 // register API
 
-app.post('/register', async (req, res) => {
-    try {
-        const salt = await bcypt.genSalt(10)
-        const bcryptPssword = await bcypt.hash(req.body.password, salt)
+app.post("/register", async (req, res) => {
+  try {
+    const salt = await bcypt.genSalt(10);
+    const bcryptPssword = await bcypt.hash(req.body.password, salt);
 
-        const user = new AllUser({
-            username: req.body.username,
-            email: req.body.email,
-            password: bcryptPssword
-            // password: req.body.password
-        })
-       const saveUser = await user.save()
-        return res.json(saveUser)
-    } catch (e) {
-        console.log(e);
-        res.status(500).json({
-            message:e.message || "some error ecured"
-        })
-    }
-})
-
+    const user = new AllUser({
+      username: req.body.username,
+      email: req.body.email,
+      password: bcryptPssword,
+      // password: req.body.password
+    });
+    const saveUser = await user.save();
+    return res.json(saveUser);
+  } catch (e) {
+    console.log(e);
+    res.status(500).json({
+      message: e.message || "some error ecured",
+    });
+  }
+});
 
 //delete user
-app.delete('/:id', async (req, res) => {
-    try {
-        const user = await AllUser.findByIdAndDelete(req.params.id)
-        if(!user){
-            return res.status(404).send("Account not found.");
-        }
-        res.send("Account has been deleted")
-    } catch (e) {
-        return res.json(e)
+app.delete("/:id", async (req, res) => {
+  try {
+    const user = await AllUser.findByIdAndDelete(req.params.id);
+    if (!user) {
+      return res.status(404).send("Account not found.");
     }
-})
+    res.send("Account has been deleted");
+  } catch (e) {
+    return res.json(e);
+  }
+});
 //update user
-app.put('/update-user/:id', async (req, res) => {
-    try {
-       const {username , email} = req.body
-       const newUser = {username , email}
-        const user = await AllUser.findByIdAndUpdate(req.params.id,  {$set: newUser})
-        return res.status(200).json({status:"Success" , result:user} )
-    } catch (e) {
-        return res.status(500).json(e)
-    }
-})
+app.put("/update-user/:id", async (req, res) => {
+  try {
+    const { username, email } = req.body;
+    const newUser = { username, email };
+    const user = await AllUser.findByIdAndUpdate(req.params.id, {
+      $set: newUser,
+    });
+    return res.status(200).json({ status: "Success", result: user });
+  } catch (e) {
+    return res.status(500).json(e);
+  }
+});
 
 //get all user
-app.get('/users', async (req, res) => {
-    try {
-        const users = await AllUser.find()
-        return res.json(users)
-    } catch (e) {
-        return res.status(500).json(e)
-    }
-})
+app.get("/users", async (req, res) => {
+  try {
+    const users = await AllUser.find();
+    return res.json(users);
+  } catch (e) {
+    return res.status(500).json(e);
+  }
+});
 // ***********************Products_Api********************
 // let products = [
 //     {
@@ -261,55 +282,60 @@ app.get('/users', async (req, res) => {
 //     },
 //   ]
 
-
-
 //   Products.insertMany(products).then(() => {
 //     console.log('added');
 //   }).catch((err) => {
 //    console.log(err);
 //   })
-  
 
-app.post('/addProduct', async (req, res) => {
-    try {
-       const product = new Products ({
-        name: req.body.name,
-        price: req.body.price,
-        category: req.body.category,
-        description: req.body.description,
-        discount: req.body.discount,
-        images: req.body.images
-        
-       });
-       const product_data = await product.save()
-        return res.status(200).send({success:true , message:"product details" , result:product_data})
-    } catch (e) {
-        console.log(e);
-        res.status(500).send({
-           success:false, message:e.message || "some error ecured"
-        })
-    }
-})
+app.post("/addProduct", async (req, res) => {
+  try {
+    const product = new Products({
+      name: req.body.name,
+      price: req.body.price,
+      category: req.body.category,
+      description: req.body.description,
+      discount: req.body.discount,
+      images: req.body.images,
+    });
+    const product_data = await product.save();
+    return res.status(200).send({
+      success: true,
+      message: "product details",
+      result: product_data,
+    });
+  } catch (e) {
+    console.log(e);
+    res.status(500).send({
+      success: false,
+      message: e.message || "some error ecured",
+    });
+  }
+});
 
 //get all products
-app.get('/products', async (req, res) => {
-    try {
-        const product = await Products.find()
-        return res.status(200).send({success:true,message:"all products",result:product})
-    } catch (e) {
-        return res.status(500).send({success:false,message:e.message || "some error ecured"})
-    }
-})
+app.get("/products", async (req, res) => {
+  try {
+    const product = await Products.find();
+    return res
+      .status(200)
+      .send({ success: true, message: "all products", result: product });
+  } catch (e) {
+    return res
+      .status(500)
+      .send({ success: false, message: e.message || "some error ecured" });
+  }
+});
 
 //delete products
-app.delete('/products/:id', async (req, res) => {
-    try {
-        const prod = await Products.findByIdAndDelete(req.params.id)
-        if(!prod){
-            return res.status(404).send("Products not found.");
-        }
-        res.send("Products has been deleted")
-    } catch (e) {
-        return res.json(e)
+app.delete("/products/:id", async (req, res) => {
+  try {
+    const prod = await Products.findByIdAndDelete(req.params.id);
+    if (!prod) {
+      return res.status(404).send("Products not found.");
     }
-})
+    res.send("Products has been deleted");
+  } catch (e) {
+    return res.json(e);
+  }
+});
