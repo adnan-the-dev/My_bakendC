@@ -15,6 +15,7 @@ app.use(morgan("common"));
 dotenv.config();
 
 const { MONGO_URL } = process.env;
+const { PORT} =  process.env;
 
 app.use(express.json());
 
@@ -23,7 +24,7 @@ mongoose
   .connect(MONGO_URL)
   .then(() => {
     console.log("succesfully connected to database");
-    app.listen(8800, () => {
+    app.listen(PORT || 8800, () => {
       console.log("server is running");
     });
   })
